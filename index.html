@@ -280,7 +280,7 @@ section{position:relative}
   #bubblePanel{padding-left:0;padding-right:0}
   #bubblePanel .p-eyebrow,#bubblePanel h3,#bubblePanel .hint{padding-left:14px;padding-right:14px}
   .bubble-wrap{width:118vw;margin-left:50%;transform:translateX(-50%);padding:0;overflow:visible}
-  #bubbleSvg{width:118vw;max-width:none;margin-left:-9vw}
+  #bubbleSvg{width:100%;max-width:none;margin-left:0}
   .vbars{height:250px;gap:3px;padding-top:12px;overflow:hidden}
   .vb .vval{top:auto;bottom:10px;color:#fff;font-size:.62rem;text-shadow:0 1px 4px rgba(0,0,0,.45);z-index:2}
   .vb .vlab{font-size:.58rem;bottom:-26px}
@@ -891,7 +891,7 @@ footer b{color:#fff}
     });
     var minx=1e9,maxx=-1e9,miny=1e9,maxy=-1e9;
     placed.forEach(function(d){minx=Math.min(minx,d.x-d.r);maxx=Math.max(maxx,d.x+d.r);miny=Math.min(miny,d.y-d.r);maxy=Math.max(maxy,d.y+d.r);});
-    var pad=window.innerWidth<=640?2:20;
+    var pad=window.innerWidth<=640?50:20;
     var cw=maxx-minx,ch=maxy-miny,sc=Math.min((W-pad)/cw,(H-pad)/ch),ox=W/2-(minx+cw/2)*sc,oy=H/2-(miny+ch/2)*sc;
     var wrap=document.getElementById('bubbleWrap'),NS='http://www.w3.org/2000/svg';
     function wrapLabel(s){
