@@ -1009,7 +1009,18 @@ footer b{color:#fff}
   /* ---------- Parallax (Full-Bleed-Bilder) + sanftes Nachfedern ---------- */
   if(!reduce){
     var pxEls=[].slice.call(document.querySelectorAll('.parallax')),pxTick=false;
-    function px(){pxTick=false;var vh=window.innerHeight;pxEls.forEach(function(el){var img=el.querySelector('.pimg');if(!img)return;var r=el.getBoundingClientRect();if(r.bottom<-80||r.top>vh+80)return;var depth=parseFloat(el.dataset.depth||'0.045');var prog=((r.top+r.height/2)-vh/2)/(vh/2+r.height/2);img.style.transform='translateY('+(prog*r.height*depth)+'px)';});}
+    function px(){
+      pxTick=false;
+      var vh=window.innerHeight,isMobile=window.innerWidth<=640;
+      pxEls.forEach(function(el){
+        var img=el.querySelector('.pimg');if(!img)return;
+        if(isMobile&&el.closest('.imp-grid')){img.style.transform='';return;}
+        var r=el.getBoundingClientRect();if(r.bottom<-80||r.top>vh+80)return;
+        var depth=parseFloat(el.dataset.depth||(isMobile?'0.025':'0.045'));
+        var prog=((r.top+r.height/2)-vh/2)/(vh/2+r.height/2);
+        img.style.transform='translateY('+(prog*r.height*depth)+'px)';
+      });
+    }
     if(pxEls.length){window.addEventListener('scroll',function(){if(!pxTick){pxTick=true;requestAnimationFrame(px);}},{passive:true});window.addEventListener('resize',px);px();}
     var settleObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target;el.classList.remove('settle');void el.offsetWidth;el.classList.add('settle');}});},{threshold:0.4});
     document.querySelectorAll('.chart-block .panel').forEach(function(p){settleObs.observe(p);});
