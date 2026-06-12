@@ -170,15 +170,15 @@ section{position:relative}
 .ship-c{grid-column:2;grid-row:2;min-height:252px}
 .ship-cap{position:absolute;left:0;right:0;bottom:0;padding:22px;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent);color:#fff;font-weight:600}
 @media(max-width:760px){.ship-grid{grid-template-columns:1fr}.ship-a,.ship-b,.ship-c{grid-column:1;grid-row:auto;min-height:300px}}
-.sg-grid{columns:3 240px;column-gap:14px;margin-top:20px}
-.sg-grid img{width:100%;height:auto;break-inside:avoid;display:block;margin:0 0 14px;border-radius:14px;box-shadow:var(--shadow-sm);cursor:zoom-in;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.sg-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px;align-items:start}
+.sg-grid img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:var(--shadow-sm);cursor:zoom-in;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .sg-grid img:hover{transform:scale(1.03)}
 .sg-grid .sg-wide,.sg-grid .sg-medium,.sg-grid .sg-tall,.sg-grid .sg-slim{display:block}
-.sg-logo-tile{break-inside:avoid;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);min-height:190px;margin:0 0 14px;padding:24px;display:flex;align-items:center;justify-content:center}
+.sg-logo-tile{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);min-height:190px;padding:24px;display:flex;align-items:center;justify-content:center}
 .sg-logo-tile img{width:min(86%,230px);height:auto;margin:0;box-shadow:none;border-radius:0;cursor:default}
 .sg-logo-tile img:hover{transform:none}
-@media(max-width:900px){.sg-grid{columns:2 220px}}
-@media(max-width:560px){.sg-grid{columns:1}}
+@media(max-width:900px){.sg-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.sg-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sg-grid img,.sg-logo-tile{border-radius:10px}.sg-logo-tile{min-height:130px;padding:16px}}
 
 /* CHART panels (vertikal, einzeln) */
 .chart-block{max-width:1040px;margin:0 auto}
@@ -426,14 +426,14 @@ footer b{color:#fff}
 @media(max-width:520px){.support-logos .lg{padding:10px 14px;min-height:58px}.support-logos img{max-height:32px;max-width:104px}.support-logos .lg-big img{max-height:48px;max-width:120px}}
 
 /* Galerie-Bilder: sanftes, gestaffeltes Einblenden beim Scrollen (Apple-Style) */
-.imp-grid figure,.luga-gallery .lg-grid .luga-tile,.ship-gallery .sg-grid img{opacity:0;transform:translateY(24px) scale(.97);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.imp-grid.in figure,.luga-gallery.in .lg-grid .luga-tile,.ship-gallery.in .sg-grid img{opacity:1;transform:none}
-.imp-grid.in figure:nth-child(2),.luga-gallery.in .lg-grid .luga-tile:nth-child(2),.ship-gallery.in .sg-grid img:nth-child(2){transition-delay:.07s}
-.imp-grid.in figure:nth-child(3),.luga-gallery.in .lg-grid .luga-tile:nth-child(3),.ship-gallery.in .sg-grid img:nth-child(3){transition-delay:.14s}
-.imp-grid.in figure:nth-child(4),.ship-gallery.in .sg-grid img:nth-child(4){transition-delay:.21s}
-.imp-grid.in figure:nth-child(5),.ship-gallery.in .sg-grid img:nth-child(5){transition-delay:.28s}
-.imp-grid.in figure:nth-child(6),.ship-gallery.in .sg-grid img:nth-child(6){transition-delay:.35s}
-.imp-grid.in figure:nth-child(n+7),.ship-gallery.in .sg-grid img:nth-child(n+7){transition-delay:.42s}
+.imp-grid figure,.luga-gallery .lg-grid .luga-tile{opacity:0;transform:translateY(24px) scale(.97);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.imp-grid.in figure,.luga-gallery.in .lg-grid .luga-tile{opacity:1;transform:none}
+.imp-grid.in figure:nth-child(2),.luga-gallery.in .lg-grid .luga-tile:nth-child(2){transition-delay:.07s}
+.imp-grid.in figure:nth-child(3),.luga-gallery.in .lg-grid .luga-tile:nth-child(3){transition-delay:.14s}
+.imp-grid.in figure:nth-child(4){transition-delay:.21s}
+.imp-grid.in figure:nth-child(5){transition-delay:.28s}
+.imp-grid.in figure:nth-child(6){transition-delay:.35s}
+.imp-grid.in figure:nth-child(n+7){transition-delay:.42s}
 
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto !important}
