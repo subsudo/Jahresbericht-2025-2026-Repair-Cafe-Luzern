@@ -91,7 +91,7 @@ section{position:relative}
 .imp-grid figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.28),transparent 45%)}
 .imp-feature{height:64vh;margin-top:46px;margin-bottom:10px}
 .imp-feature .pimg{object-position:center center}
-@media(max-width:560px){.imp-grid{grid-template-columns:1fr}.imp-feature{height:50vh}}
+@media(max-width:560px){.imp-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}.imp-grid figure{border-radius:10px}.imp-feature{height:50vh;margin-top:30px}}
 
 /* TRAKTANDEN – vertikal, kompakt */
 .trakt{display:flex;flex-direction:column;gap:9px;max-width:720px;margin:40px auto 0}
@@ -124,25 +124,27 @@ section{position:relative}
 .note .tag{margin-bottom:14px}.note h3{font-size:1.45rem}.note p{color:var(--ink-soft);margin-top:12px}
 .infra-cards .tag{display:block;width:max-content;max-width:100%;background:transparent !important;color:var(--ink-soft) !important;border-radius:0;padding:0;margin-bottom:10px;font-size:.74rem;font-weight:700;letter-spacing:.12em}
 
-/* LUGA sticky sequence */
+/* LUGA scroll sequence */
 .luga{background:linear-gradient(180deg,#101216,#15181d);color:#fff;position:relative}
 .luga-intro{min-height:52vh;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(70px,10vh,130px);padding-bottom:clamp(80px,13vh,170px)}
 .luga-intro .eyebrow{color:var(--pink)}
 .luga-intro h2{font-size:clamp(2.3rem,6vw,4.6rem);margin-top:8px}
 .luga-intro p{color:#c3c8d1;margin-top:18px;max-width:54ch}
-.seq{position:relative}
-.seq-stage{position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.seq-frame{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(1.06);transition:opacity 1s var(--ease),transform 1.4s var(--ease)}
-.seq-frame.active{opacity:1;transform:scale(1)}
+.seq{display:grid;gap:18px;padding-bottom:clamp(40px,7vh,90px)}
+.seq-stage{display:grid;gap:18px}
+.seq-frame{position:relative;min-height:clamp(360px,72vh,760px);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;opacity:1;transform:none}
+.seq-frame.active{opacity:1;transform:none}
 .seq-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .seq-frame .pimg{top:-12%;height:124%}
 .seq-frame .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,11,.15),rgba(8,9,11,.05) 40%,rgba(8,9,11,.78))}
-.seq-cap{position:relative;z-index:2;max-width:var(--maxw);width:100%;margin:0 auto;padding:0 var(--page-pad);align-self:flex-end;padding-bottom:min(12vh,120px)}
+.seq-cap{display:none}
+.seq-frame .seq-frame-cap{position:relative;z-index:2;max-width:var(--maxw);width:100%;margin:0 auto;padding:0 var(--page-pad) min(10vh,90px)}
 .seq-cap .step{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);font-weight:800}
-.seq-cap h3{font-size:clamp(1.6rem,4vw,3rem);margin-top:10px;max-width:18ch;text-shadow:0 2px 30px rgba(0,0,0,.5)}
-.seq-cap p{margin-top:12px;color:#dfe3e9;max-width:46ch;font-size:clamp(1rem,1.6vw,1.2rem);text-shadow:0 2px 20px rgba(0,0,0,.6)}
-.seq-steps{position:relative}
-.seq-step{height:100svh}
+.seq-frame .step{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);font-weight:800}
+.seq-frame h3{font-size:clamp(1.6rem,4vw,3rem);margin-top:10px;max-width:18ch;text-shadow:0 2px 30px rgba(0,0,0,.5)}
+.seq-frame p{margin-top:12px;color:#dfe3e9;max-width:46ch;font-size:clamp(1rem,1.6vw,1.2rem);text-shadow:0 2px 20px rgba(0,0,0,.6)}
+.seq-steps{display:none}
+.seq-step{height:0}
 .luga-fallback{display:none}
 .reduced .seq{display:none}
 .reduced .luga-fallback{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);padding-top:40px}
@@ -150,8 +152,9 @@ section{position:relative}
 .reduced .luga-fallback figure{position:relative;border-radius:16px;overflow:hidden}
 .reduced .luga-fallback img{width:100%;height:300px;object-fit:cover}
 .luga-gallery{padding-top:clamp(40px,7vh,90px);padding-bottom:clamp(70px,10vh,130px)}
-.lg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.lg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
 @media(max-width:900px){.lg-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.lg-grid{gap:10px}}
 .lg-grid .luga-tile{position:relative;height:220px;overflow:hidden;border-radius:14px;background:#222;cursor:zoom-in}
 .lg-grid .luga-tile .pimg{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;will-change:transform}
 .lg-grid .luga-tile:hover .pimg{filter:saturate(1.06) contrast(1.03)}
@@ -271,6 +274,27 @@ section{position:relative}
 .value-panel .mini b{display:block;font-size:1.25rem;line-height:1.1}.value-panel .mini span{display:block;color:var(--ink-soft);font-size:.86rem;margin-top:4px}
 .value-panel .method{color:var(--ink-soft);font-size:.78rem;line-height:1.45;margin-top:20px;max-width:82ch}
 @media(max-width:760px){.value-panel .value-grid{grid-template-columns:1fr}}
+
+@media(max-width:640px){
+  .panel{padding:20px 14px;overflow:hidden}
+  #bubblePanel{padding-left:0;padding-right:0}
+  #bubblePanel .p-eyebrow,#bubblePanel h3,#bubblePanel .hint{padding-left:14px;padding-right:14px}
+  .bubble-wrap{width:100vw;margin-left:50%;transform:translateX(-50%);padding:0 4px}
+  #bubbleSvg{width:100%;max-width:none}
+  .vbars{height:250px;gap:3px;padding-top:12px;overflow:hidden}
+  .vb .vval{top:8px;color:#fff;font-size:.62rem;text-shadow:0 1px 4px rgba(0,0,0,.45);z-index:2}
+  .vb .vlab{font-size:.58rem;bottom:-26px}
+  .chart-legend{margin-top:44px;font-size:.82rem}
+  .stot-wrap{gap:14px}
+  .stot-row{grid-template-columns:78px 1fr 48px;gap:10px}
+  .stot-row .nm{font-size:.92rem}
+  .stot-row .track{height:25px}
+  .stot-row .big{font-size:1.05rem}
+  .sbars{width:100%;max-width:100%;height:260px;gap:3px;padding-top:22px;overflow:hidden}
+  .sb .stot{font-size:.58rem;top:-17px}
+  .sb .sx{font-size:.58rem;bottom:-24px}
+  .sb .seg{font-size:.52rem}
+}
 
 .region{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;align-items:center}
 @media(max-width:900px){.region{grid-template-columns:1fr}}
@@ -509,10 +533,10 @@ footer b{color:#fff}
   </div>
   <div class="seq" id="lugaSeq">
     <div class="seq-stage">
-      <div class="seq-frame parallax" data-i="0"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%207.JPG" alt="Einladende Lounge am LUGA-Stand"><div class="scrim"></div></div>
-      <div class="seq-frame parallax" data-i="1"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%202.JPG" alt="Textilreparatur live am Stand"><div class="scrim"></div></div>
-      <div class="seq-frame parallax" data-i="2"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%208.JPG" alt="Beraten und Reparieren am Tisch"><div class="scrim"></div></div>
-      <div class="seq-frame parallax" data-i="3"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%205.JPG" alt="Karte der Repair Cafés der Zentralschweiz"><div class="scrim"></div></div>
+      <div class="seq-frame parallax" data-i="0"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%207.JPG" alt="Einladende Lounge am LUGA-Stand"><div class="scrim"></div><div class="seq-frame-cap"><div class="step">01 / 04</div><h3>Unser Stand an der LUGA</h3><p>Sichtbar werden, ins Gespräch kommen. Gemeinsam mit Benevol und anderen Freiwilligen-Projekten.</p></div></div>
+      <div class="seq-frame parallax" data-i="1"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%202.JPG" alt="Textilreparatur live am Stand"><div class="scrim"></div><div class="seq-frame-cap"><div class="step">02 / 04</div><h3>Reparieren zum Anschauen</h3><p>An der Textil-Puppe wird gezeigt, was man wie reparieren kann.</p></div></div>
+      <div class="seq-frame parallax" data-i="2"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%208.JPG" alt="Beraten und Reparieren am Tisch"><div class="scrim"></div><div class="seq-frame-cap"><div class="step">03 / 04</div><h3>Nachhaltigkeit zum Anfassen</h3><p>Beraten, zeigen, informieren. Die Idee des Reparierens vermitteln.</p></div></div>
+      <div class="seq-frame parallax" data-i="3"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%205.JPG" alt="Karte der Repair Cafés der Zentralschweiz"><div class="scrim"></div><div class="seq-frame-cap"><div class="step">04 / 04</div><h3>Repair Cafés der Zentralschweiz</h3><p>Die Karte zeigt, wie dicht das Netz inzwischen ist. Seit dem ersten Repair Café in Luzern vor elf Jahren sind in der Zentralschweiz über 32 dazugekommen.</p></div></div>
       <div class="seq-cap">
         <div class="step" id="seqStep">01 / 04</div>
         <h3 id="seqTitle">Unser Stand an der LUGA</h3>
@@ -533,11 +557,9 @@ footer b{color:#fff}
     <div class="eyebrow" style="color:var(--pink)">Rückblick</div>
     <p style="color:#c3c8d1;max-width:64ch;margin-top:14px;font-size:1.05rem;line-height:1.55">Benevol spricht von rund 10'000 Gästen. Unser Eindruck war, dass es etwas weniger waren. Trotzdem war der Auftritt ein grosser Erfolg. Weil es bei uns nichts zu kaufen gab, waren viele neugierig und kamen mit uns ins Gespräch. Wir erhielten viele positive Rückmeldungen und Komplimente für den Stand. Für ein nächstes Mal wissen wir: weniger ist mehr.</p>
     <p style="color:#c3c8d1;max-width:64ch;margin-top:14px;font-size:1.05rem;line-height:1.55">Falls Benevol erneut einen Stand an der Luga macht und uns anfragt, wären wir gerne wieder dabei.</p>
-    <div class="eyebrow" style="color:var(--pink);margin-top:38px">Weitere Eindrücke</div>
     <div class="lg-grid">
       <figure class="luga-tile parallax"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%201.jpg" alt="LUGA Eindruck" data-zoom></figure>
       <figure class="luga-tile parallax"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%204.JPG" alt="LUGA Eindruck" data-zoom></figure>
-      <figure class="luga-tile parallax"><img class="pimg" src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Luga%206.JPG" alt="LUGA Eindruck" data-zoom></figure>
     </div>
   </div>
 </section>
@@ -823,6 +845,16 @@ footer b{color:#fff}
   var tip=document.getElementById('tip');
   function showTip(html,x,y){tip.innerHTML=html;tip.classList.add('show');var r=tip.getBoundingClientRect();var gap=18;var nx=x+gap,ny=y-r.height-gap;if(nx+r.width>window.innerWidth-10)nx=x-r.width-gap;if(ny<10)ny=y+gap;if(ny+r.height>window.innerHeight-10)ny=window.innerHeight-r.height-10;if(nx<10)nx=10;tip.style.left=nx+'px';tip.style.top=ny+'px';}
   function hideTip(){tip.classList.remove('show');}
+  var activeBubble=null;
+  function clearBubble(){
+    if(activeBubble){
+      activeBubble.wrap.classList.remove('dim');
+      activeBubble.g.classList.remove('hot');
+      activeBubble.c.style.transform='';
+      activeBubble=null;
+    }
+    hideTip();
+  }
 
   /* reveal + charts */
   var revObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(e.target.dataset.chart)drawChart(e.target.dataset.chart);e.target.querySelectorAll('[data-count]').forEach(animateCount);revObs.unobserve(e.target);}});},{threshold:0.15,rootMargin:'0px 0px -22% 0px'});
@@ -882,9 +914,21 @@ footer b{color:#fff}
         txt('val',r*0.05,Math.max(8,Math.min(r*0.55,11)),d.v);
       }
       if(!reduce){
-        g.addEventListener('mouseenter',function(ev){wrap.classList.add('dim');g.classList.add('hot');c.style.transform='scale(1.22)';showTip('<b>'+d.l+'</b><br>'+d.v+' Reparaturen · '+pct.toFixed(1).replace('.',',')+' %',ev.clientX,ev.clientY);});
-        g.addEventListener('mousemove',function(ev){showTip('<b>'+d.l+'</b><br>'+d.v+' Reparaturen · '+pct.toFixed(1).replace('.',',')+' %',ev.clientX,ev.clientY);});
-        g.addEventListener('mouseleave',function(){wrap.classList.remove('dim');g.classList.remove('hot');c.style.transform='';hideTip();});
+        var html='<b>'+d.l+'</b><br>'+d.v+' Reparaturen · '+pct.toFixed(1).replace('.',',')+' %';
+        function activate(ev){
+          if(activeBubble&&activeBubble.g!==g)clearBubble();
+          wrap.classList.add('dim');g.classList.add('hot');c.style.transform='scale(1.22)';
+          activeBubble={wrap:wrap,g:g,c:c};
+          showTip(html,ev.clientX,ev.clientY);
+        }
+        g.addEventListener('mouseenter',activate);
+        g.addEventListener('mousemove',function(ev){if(activeBubble&&activeBubble.g===g)showTip(html,ev.clientX,ev.clientY);});
+        g.addEventListener('mouseleave',function(){if(!matchMedia('(hover: none)').matches)clearBubble();});
+        g.addEventListener('pointerdown',function(ev){
+          ev.stopPropagation();
+          if(activeBubble&&activeBubble.g===g){clearBubble();return;}
+          activate(ev);
+        });
       }
       svg.appendChild(g);
       if(!reduce) setTimeout(function(){c.setAttribute('r',r);},120+i*22);
@@ -951,19 +995,14 @@ footer b{color:#fff}
     });
   }
 
-  /* ---------- LUGA sequence ---------- */
-  var caps=[{t:'Unser Stand an der LUGA',p:'Sichtbar werden, ins Gespräch kommen. Gemeinsam mit Benevol und anderen Freiwilligen-Projekten.'},{t:'Reparieren zum Anschauen',p:'An der Textil-Puppe wird gezeigt, was man wie reparieren kann.'},{t:'Nachhaltigkeit zum Anfassen',p:'Beraten, zeigen, informieren. Die Idee des Reparierens vermitteln.'},{t:'Repair Cafés der Zentralschweiz',p:'Die Karte zeigt, wie dicht das Netz inzwischen ist. Seit dem ersten Repair Café in Luzern vor elf Jahren sind in der Zentralschweiz über 32 dazugekommen.'}];
-  var frames=[].slice.call(document.querySelectorAll('#lugaSeq .seq-frame')),steps=[].slice.call(document.querySelectorAll('#lugaSeq .seq-step'));
-  var seqStep=document.getElementById('seqStep'),seqTitle=document.getElementById('seqTitle'),seqText=document.getElementById('seqText'),curIdx=-1;
-  function setFrame(i){if(i===curIdx)return;curIdx=i;frames.forEach(function(f,k){f.classList.toggle('active',k===i);});if(caps[i]){seqStep.textContent=('0'+(i+1))+' / 0'+caps.length;seqTitle.textContent=caps[i].t;seqText.textContent=caps[i].p;}}
-  if(frames.length&&!reduce){setFrame(0);var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var idx=steps.indexOf(e.target);if(idx>-1)setFrame(idx);}});},{threshold:0.5});steps.forEach(function(s){so.observe(s);});}
-
   /* ---------- lightbox ---------- */
   var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
   function openLB(s,a){lbImg.src=s;lbImg.alt=a||'';lb.classList.add('open');}
   function closeLB(){lb.classList.remove('open');}
   document.querySelectorAll('[data-zoom],.card .ph,.region img').forEach(function(img){img.style.cursor='zoom-in';img.addEventListener('click',function(){openLB(img.src,img.alt);});});
   lb.addEventListener('click',closeLB);
+  document.addEventListener('pointerdown',function(e){if(!e.target.closest||(!e.target.closest('.bub')&&!e.target.closest('#tip')))clearBubble();},{passive:true});
+  window.addEventListener('scroll',clearBubble,{passive:true});
 
   /* ---------- Parallax (Full-Bleed-Bilder) + sanftes Nachfedern ---------- */
   if(!reduce){
