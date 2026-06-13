@@ -134,10 +134,10 @@ section{position:relative}
 .luga-intro p{color:#c3c8d1;margin-top:18px;max-width:54ch}
 .seq{display:grid;gap:18px;padding-bottom:clamp(40px,7vh,90px)}
 .seq-stage{display:grid;gap:18px}
-.seq-frame{position:relative;min-height:clamp(360px,72vh,760px);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;opacity:1;transform:none}
+.seq-frame{position:relative;width:min(100%,1500px);margin:0 auto;min-height:clamp(420px,72vh,760px);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;opacity:1;transform:none}
 .seq-frame.active{opacity:1;transform:none}
 .seq-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.seq-frame .pimg{top:-12%;height:124%}
+.seq-frame .pimg{top:-6%;height:112%}
 .seq-frame .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,11,.15),rgba(8,9,11,.05) 40%,rgba(8,9,11,.78))}
 .seq-cap{display:none}
 .seq-frame .seq-frame-cap{position:relative;z-index:2;max-width:var(--maxw);width:100%;margin:0 auto;padding:0 var(--page-pad) min(10vh,90px)}
@@ -157,8 +157,8 @@ section{position:relative}
 .lg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
 @media(max-width:900px){.lg-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.lg-grid{gap:10px}}
-.lg-grid .luga-tile{position:relative;height:220px;overflow:hidden;border-radius:14px;background:#222;cursor:zoom-in}
-.lg-grid .luga-tile .pimg{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;will-change:transform}
+.lg-grid .luga-tile{position:relative;aspect-ratio:4/3;min-height:300px;overflow:hidden;border-radius:14px;background:#222;cursor:zoom-in}
+.lg-grid .luga-tile .pimg{position:absolute;left:0;top:-6%;width:100%;height:112%;object-fit:cover;will-change:transform}
 .lg-grid .luga-tile:hover .pimg{filter:saturate(1.06) contrast(1.03)}
 
 /* SHIPTEC */
@@ -764,7 +764,7 @@ footer b{color:#fff}
       <div class="fin-kpi"><div class="k">Ertrag 2025</div><div class="v">CHF 5'707</div></div>
       <div class="fin-kpi"><div class="k">Aufwand 2025</div><div class="v">CHF 5'356</div></div>
       <div class="fin-kpi good"><div class="k">Gewinn 2025</div><div class="v">+ CHF 351</div></div>
-      <div class="fin-kpi good"><div class="k">Kontostand 31.12.</div><div class="v">CHF 6'925</div></div>
+      <div class="fin-kpi good"><div class="k">Kontostand 31.12.2025</div><div class="v">CHF 6'925</div></div>
     </div>
     <div class="fin-detail">
       <div class="fin-list reveal"><h3>Was reingekommen ist</h3>
@@ -773,8 +773,8 @@ footer b{color:#fff}
         <div class="fin-row"><span>Total Ertrag</span><span class="amt">CHF 5'707.10</span></div>
       </div>
       <div class="fin-list reveal"><h3>Was es gebraucht hat</h3>
-        <div class="fin-row pink"><span>Verpflegung an den Anlässen (18×, Ø CHF 178)</span><span class="amt">CHF 3'200</span></div>
-        <div class="fin-row pink"><span>Übriger Aufwand</span><span class="amt">CHF 2'156</span></div>
+        <div class="fin-row pink"><span>Verpflegung an den Anlässen (18×, Ø CHF 175)</span><span class="amt">CHF 3'150</span></div>
+        <div class="fin-row pink"><span>Übriger Aufwand</span><span class="amt">CHF 2'206</span></div>
         <div class="fin-row"><span>Total Aufwand</span><span class="amt">CHF 5'355.97</span></div>
       </div>
     </div>
