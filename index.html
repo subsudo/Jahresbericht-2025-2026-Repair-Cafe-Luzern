@@ -176,7 +176,7 @@ section{position:relative}
 .sg-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:14px;box-shadow:var(--shadow-sm);cursor:zoom-in;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .sg-grid img:hover{transform:scale(1.03)}
 .sg-logo-tile{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);aspect-ratio:1/1;padding:24px;display:flex;align-items:center;justify-content:center}
-.sg-logo-tile img{width:min(86%,230px);height:auto;margin:0;box-shadow:none;border-radius:0;cursor:default}
+.sg-logo-tile img{width:min(86%,230px);max-height:72%;height:auto;aspect-ratio:auto;object-fit:contain;margin:0;box-shadow:none;border-radius:0;cursor:default}
 .sg-logo-tile img:hover{transform:none}
 @media(max-width:900px){.sg-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:560px){.sg-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sg-grid img,.sg-logo-tile{border-radius:10px}.sg-logo-tile{padding:16px}}
