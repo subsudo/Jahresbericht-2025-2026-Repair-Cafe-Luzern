@@ -579,15 +579,15 @@ footer b{color:#fff}
     <div class="ship-gallery reveal slide" style="margin-top:28px">
       <div class="eyebrow">Mehr vom Tag</div>
       <div class="sg-grid">
-        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%2011.jpg" alt="An der Maschine" data-zoom>
-        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%206.jpg" alt="Zuhören bei der Führung" data-zoom>
-        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%209.JPG" alt="Am Schiffsrumpf" data-zoom>
-        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%2012.JPG" alt="Blick aus dem Schiff" data-zoom>
-        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%207.JPG" alt="Messingdetails an Bord" data-zoom>
-        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%2010.jpg" alt="Beim Boot" data-zoom>
-        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%202.JPG" alt="In der Werfthalle" data-zoom>
-        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%204.jpg" alt="An Bord" data-zoom>
-        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%203.JPG" alt="Detail an Bord" data-zoom>
+        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%2011.jpg" data-full="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Shiptec%2011.jpg" alt="An der Maschine" data-zoom>
+        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%206.jpg" data-full="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Shiptec%206.jpg" alt="Zuhören bei der Führung" data-zoom>
+        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%209.JPG" data-full="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Shiptec%209.JPG" alt="Am Schiffsrumpf" data-zoom>
+        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%2012.JPG" data-full="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Shiptec%2012.JPG" alt="Blick aus dem Schiff" data-zoom>
+        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%207.JPG" data-full="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Shiptec%207.JPG" alt="Messingdetails an Bord" data-zoom>
+        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%2010.jpg" data-full="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Shiptec%2010.jpg" alt="Beim Boot" data-zoom>
+        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%202.JPG" data-full="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Shiptec%202.JPG" alt="In der Werfthalle" data-zoom>
+        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%204.jpg" data-full="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Shiptec%204.jpg" alt="An Bord" data-zoom>
+        <img src="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Quadrate/Shiptec%203.JPG" data-full="Jahresbericht%20%26%20GV-Pr%C3%A4sentation/Shiptec%203.JPG" alt="Detail an Bord" data-zoom>
         <div class="sg-logo-tile" aria-label="Shiptec Logo">
           <img src="logos/Logo_SHIPTEC_rgb.jpg" alt="Shiptec">
         </div>
@@ -1000,7 +1000,7 @@ footer b{color:#fff}
   var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
   function openLB(s,a){lbImg.src=s;lbImg.alt=a||'';lb.classList.add('open');}
   function closeLB(){lb.classList.remove('open');}
-  document.querySelectorAll('[data-zoom],.card .ph,.region img').forEach(function(img){img.style.cursor='zoom-in';img.addEventListener('click',function(){openLB(img.src,img.alt);});});
+  document.querySelectorAll('[data-zoom],.card .ph,.region img').forEach(function(img){img.style.cursor='zoom-in';img.addEventListener('click',function(){openLB(img.dataset.full||img.src,img.alt);});});
   lb.addEventListener('click',closeLB);
   document.addEventListener('pointerdown',function(e){if(!e.target.closest||(!e.target.closest('.bub')&&!e.target.closest('#tip')))clearBubble();},{passive:true});
   window.addEventListener('scroll',clearBubble,{passive:true});
