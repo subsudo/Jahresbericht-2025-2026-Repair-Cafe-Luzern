@@ -206,8 +206,8 @@ section{position:relative}
 .donut-wrap{display:flex;align-items:center;gap:36px;flex-wrap:wrap;justify-content:center}
 .donut{position:relative;width:240px;height:240px;flex:none}
 .donut svg{transform:rotate(-90deg)}
-.donut .ring{fill:none;stroke-width:28;transition:stroke-dashoffset 1.3s var(--ease),stroke-width .2s;cursor:default}
-.donut .ring.hot{stroke-width:32}
+.donut .ring{fill:none;stroke-width:20;transition:stroke-dashoffset 1.3s var(--ease),stroke-width .2s;cursor:default}
+.donut .ring.hot{stroke-width:24}
 .donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 30px}
 .donut-center .big{font-size:2.4rem;font-weight:800;letter-spacing:-.02em;line-height:1}
 .donut-center .small{font-size:.76rem;color:var(--ink-soft);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
@@ -942,7 +942,7 @@ footer b{color:#fff}
     var data=[{label:'Repariert',value:359,color:'#27a6d6'},{label:'Teilweise',value:111,color:'#8ed0ea'},{label:'Nicht repariert',value:248,color:'#ff6fae'},{label:'Ans Tüftelwerk weitervermittelt',value:55,color:'#cbc3cf'}];
     var total=data.reduce(function(a,b){return a+b.value;},0);
     var svg=document.getElementById('donutSvg'),r=46,cx=60,cy=60,C=2*Math.PI*r,offset=0,ns='http://www.w3.org/2000/svg';
-    var bg=document.createElementNS(ns,'circle');bg.setAttribute('cx',cx);bg.setAttribute('cy',cy);bg.setAttribute('r',r);bg.setAttribute('fill','none');bg.setAttribute('stroke','#f1eae2');bg.setAttribute('stroke-width','28');svg.appendChild(bg);
+    var bg=document.createElementNS(ns,'circle');bg.setAttribute('cx',cx);bg.setAttribute('cy',cy);bg.setAttribute('r',r);bg.setAttribute('fill','none');bg.setAttribute('stroke','#f1eae2');bg.setAttribute('stroke-width','20');svg.appendChild(bg);
     var center=document.getElementById('donutCenter'),leg=document.getElementById('donutLegend');
     var defBig=center.querySelector('.big').textContent,defSmall=center.querySelector('.small').textContent;
     data.forEach(function(d,i){
