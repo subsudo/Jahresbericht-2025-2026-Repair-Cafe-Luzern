@@ -651,12 +651,13 @@ footer b{color:#fff}
           <div class="donut">
             <svg viewBox="0 0 120 120" id="donutSvg"></svg>
             <div class="donut-center" id="donutCenter">
-              <div class="big" data-count="60.8" data-decimals="1" data-suffix="%">0</div>
-              <div class="small">ganz oder teilweise repariert</div>
+              <div class="big" data-count="65.5" data-decimals="1" data-suffix="%">0</div>
+              <div class="small">der selbst bearbeiteten Geräte</div>
             </div>
           </div>
           <div class="legend" id="donutLegend"></div>
         </div>
+        <p class="hint" style="margin-top:18px;font-size:.78rem">* Die 55 ans Tüftelwerk weitervermittelten Geräte zählen nicht als Misserfolg. Die Quote bezieht sich auf die 718 Geräte, die wir selbst bearbeitet haben. Die 773 entgegengenommenen Geräte bleiben die Gesamtzahl.</p>
       </div>
 
       <!-- Pro Anlass -->
@@ -938,7 +939,7 @@ footer b{color:#fff}
 
   /* ---------- DONUT ---------- */
   function drawDonut(){
-    var data=[{label:'Repariert',value:359,color:'#27a6d6'},{label:'Teilweise',value:111,color:'#8ed0ea'},{label:'Nicht repariert',value:248,color:'#ff6fae'},{label:'Tüftelwerk',value:55,color:'#cbc3cf'}];
+    var data=[{label:'Repariert',value:359,color:'#27a6d6'},{label:'Teilweise',value:111,color:'#8ed0ea'},{label:'Nicht repariert',value:248,color:'#ff6fae'},{label:'Ans Tüftelwerk weitervermittelt',value:55,color:'#cbc3cf'}];
     var total=data.reduce(function(a,b){return a+b.value;},0);
     var svg=document.getElementById('donutSvg'),r=46,cx=60,cy=60,C=2*Math.PI*r,offset=0,ns='http://www.w3.org/2000/svg';
     var bg=document.createElementNS(ns,'circle');bg.setAttribute('cx',cx);bg.setAttribute('cy',cy);bg.setAttribute('r',r);bg.setAttribute('fill','none');bg.setAttribute('stroke','#f1eae2');bg.setAttribute('stroke-width','28');svg.appendChild(bg);
